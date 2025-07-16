@@ -1,0 +1,212 @@
+/* Orbitron font for futuristic look */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Container */
+.login-container {
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(ellipse at center, #111 0%, #000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Glowing Pulse Ring */
+.login-container::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.15), transparent 70%);
+  animation: pulseRing 6s infinite ease-in-out;
+  z-index: 0;
+  filter: blur(80px);
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.1;
+  }
+}
+
+/* Title */
+.login-container h2 {
+  font-size: 3vmax;
+  font-weight: 600;
+  letter-spacing: 4px;
+  margin-bottom: 35px;
+  background: linear-gradient(90deg, #00fff2, #ff00c8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+  animation: neonGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+  0% {
+    text-shadow: 0 0 10px #00fff2, 0 0 15px #ff00c8;
+  }
+  100% {
+    text-shadow: 0 0 20px #00fff2, 0 0 30px #ff00c8;
+  }
+}
+
+/* Form Card */
+.login-form {
+  width: 380px;
+  padding: 45px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+  box-shadow: 0 0 55px rgba(0, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  backdrop-filter: blur(20px);
+  z-index: 1;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input box */
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #111;
+  border-radius: 16px;
+  padding: 16px 20px;
+  color: #00fff2;
+  border: 1px solid #222;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.05);
+}
+
+.input-box:focus-within {
+  border-color: #ff00c8;
+  box-shadow: 0 0 20px rgba(255, 0, 200, 0.4);
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.05rem;
+  width: 100%;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+/* Login Button */
+.login-btn {
+  flex: 1;
+  padding: 16px;
+  font-size: 1rem;
+  border-radius: 38px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #00fff2, #ff00c8);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.login-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #ff00c8, #00fff2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.login-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.login-btn:hover {
+  color: #000;
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 0, 200, 0.6), 0 0 25px rgba(0, 255, 255, 0.5);
+}
+
+/* Sign Up Button */
+.signup-btn {
+  flex: 1;
+  padding: 16px;
+  font-size: 1rem;
+  border-radius: 38px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #2a2a2a, #444);
+  color: #00fff2;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 14px rgba(0, 255, 255, 0.15);
+}
+
+.signup-btn:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #ff00c8, #00fff2);
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 0, 200, 0.4), 0 0 35px rgba(0, 255, 255, 0.3);
+}
+
+/* Hint Box */
+.hint-box {
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px dashed #00fff2;
+  padding: 14px 20px;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 0.95rem;
+  animation: fadeIn 0.5s ease-in-out;
+  text-align: left;
+}
+
